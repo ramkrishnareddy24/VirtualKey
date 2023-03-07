@@ -6,7 +6,7 @@ public class VirtualKeyApplication {
 	public static void main(String[] args) {
 		WelcomeScreen welcomeScreen = new WelcomeScreen();
 		welcomeScreen.intoWelcomeScreen();
-		welcomeScreen.Show();
+//		welcomeScreen.Show();
 		welcomeScreen.GetUserInput();
 		
 	}

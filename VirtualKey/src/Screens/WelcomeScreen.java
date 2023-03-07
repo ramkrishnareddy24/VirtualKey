@@ -3,8 +3,9 @@ package Screens;
 import java.util.*;
 
 import Services.DirectoryService;
+import Services.ScreenService;
 
-public class WelcomeScreen {
+public class WelcomeScreen implements Screen {
 	private String welcomeText = "Welcome to VirtualKey LockerMe.com";
 	private String developerName = "Ramakrishna G. Kannari";
 	
@@ -19,11 +20,13 @@ public class WelcomeScreen {
 	public void intoWelcomeScreen() {
 		System.out.println(welcomeText);
 		System.out.println(developerName);
-		System.out.println();
-//		Show();
+		System.out.println("\n");
+		Show();
 	}
-
+	
+	@Override
 	public void Show() {
+		System.out.println("Main Menu");
 		for(String s:options) {
 			System.out.println(s);
 		}
@@ -31,11 +34,12 @@ public class WelcomeScreen {
 	
 	public void GetUserInput() {
 		int selectedOption=0;
-		while((selectedOption=this.getOption())!=3) {
+		while((selectedOption=this.getOption())!=4) {
 			this.NavigateOption(selectedOption);
 		}
 	}
 	
+	@Override
 	public void NavigateOption(int option) {
 		switch(option) {
 		case 1:
@@ -44,7 +48,13 @@ public class WelcomeScreen {
 			break;
 			
 		case 2:
+			ScreenService.setCurrentScreen(ScreenService.FileOptionScreen);
+			ScreenService.getCurrentScreen().Show();
+			ScreenService.getCurrentScreen().GetUserInput();
 			break;
+		case 3:
+			System.out.println("Thanks for using LockerMe.com");
+			System.exit(0);
 		default: System.out.println("Invalid Option");
 		}
 	}
