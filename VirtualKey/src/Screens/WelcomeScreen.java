@@ -2,6 +2,8 @@ package Screens;
 
 import java.util.*;
 
+import Services.DirectoryService;
+
 public class WelcomeScreen {
 	private String welcomeText = "Welcome to VirtualKey LockerMe.com";
 	private String developerName = "Ramakrishna G. Kannari";
@@ -18,7 +20,7 @@ public class WelcomeScreen {
 		System.out.println(welcomeText);
 		System.out.println(developerName);
 		System.out.println();
-		Show();
+//		Show();
 	}
 
 	public void Show() {
@@ -37,7 +39,7 @@ public class WelcomeScreen {
 	public void NavigateOption(int option) {
 		switch(option) {
 		case 1:
-//			this.showFiles();
+			this.showFiles();
 			this.Show();
 			break;
 			
@@ -45,6 +47,13 @@ public class WelcomeScreen {
 			break;
 		default: System.out.println("Invalid Option");
 		}
+	}
+	
+	public void showFiles() {
+		System.out.println("List of Files:");
+		DirectoryService.PrintFiles();
+		
+		
 	}
 	
 	private int getOption() {
